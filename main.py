@@ -31,7 +31,8 @@ print(future_value)
 print(remaining_months)
 
 # calculation of present value using given loan data
-present_value = future_value / (1 + .20/12) ** remaining_months
+annual_discount_rate = .20
+present_value = future_value / (1 + annual_discount_rate/12) ** remaining_months
 
 # buyer recommendation based on loan's present value with respect to loan's current cost, results printed
 if present_value >= loan["loan_price"]:
@@ -39,19 +40,7 @@ if present_value >= loan["loan_price"]:
 else:
     print("The loan is too expensive and not worth the price")
 
-
-"""Part 3: Perform Financial Calculations.
-
-Perform financial calculations using functions.
-
-1. Define a new function that will be used to calculate present value.
-    a. This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
-    b. The function should return the `present_value` for the loan.
-2. Use the function to calculate the present value of the new loan given below.
-    a. Use an `annual_discount_rate` of 0.2 for this new loan calculation.
-"""
-
-# Given the following loan data, you will need to calculate the present value for the loan
+# new loan data
 new_loan = {
     "loan_price": 800,
     "remaining_months": 12,
@@ -59,16 +48,18 @@ new_loan = {
     "future_value": 1000,
 }
 
-# @TODO: Define a new function that will be used to calculate present value.
-#    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
-#    The function should return the `present_value` for the loan.
-# YOUR CODE HERE!
+# function to calculate present value
+def calculate_present_value(future_value, remaining_months, annual_discount_rate):
+    return present_value
 
 
-# @TODO: Use the function to calculate the present value of the new loan given below.
-#    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
-# YOUR CODE HERE!
-print(f"The present value of the loan is: {present_value}")
+# calcuation of present value for new loan data using calculate present value function
+annual_discount_rate = 0.20
+present_value = calculate_present_value(
+    new_loan["future_value"],
+    new_loan["remaining_months"],
+    annual_discount_rate)
+print(f"The present value of the loan is: ${present_value: .2f}")
 
 
 """Part 4: Conditionally filter lists of loans.
